@@ -1,11 +1,8 @@
 import React from 'react';
+import HomePage from '../../pages/HomePage';
 
 function App() {
-  return (
-    <header>
-      <h1 className='text-blue-400'>Fast React Pizza</h1>
-    </header>
-  );
+  return <HomePage />;
 }
 
 export default App;
