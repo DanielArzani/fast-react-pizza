@@ -1,14 +1,15 @@
 import React from 'react';
 import Header from '../../components/Header';
 import PizzaList from '../../components/PizzaList';
+import Main from '../../components/Main';
 
 function MenuPage() {
   return (
     <>
       <Header />
-      <main className='center'>
+      <Main>
         <PizzaList />
-      </main>
+      </Main>
     </>
   );
 }

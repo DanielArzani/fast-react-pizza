@@ -6,7 +6,12 @@ import MenuPage from '../../pages/MenuPage';
  * A pizza ordering application
  */
 function App() {
-  return <MenuPage />;
+  return (
+    <div className='center'>
+      {/* <HomePage /> */}
+      <MenuPage />
+    </div>
+  );
 }
 
 export default App;
