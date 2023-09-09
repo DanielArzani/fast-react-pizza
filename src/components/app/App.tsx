@@ -7,7 +7,7 @@ import MenuPage from '../../pages/MenuPage';
  */
 function App() {
   return (
-    <div className='center'>
+    <div className='center relative min-h-full'>
       {/* <HomePage /> */}
       <MenuPage />
     </div>

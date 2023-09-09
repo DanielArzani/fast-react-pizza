@@ -24,7 +24,8 @@
   }
   /* Allow percentage-based heights in the application */
   html,
-  body {
+  body,
+  #root {
     height: 100%;
   }
   /* Typographic tweaks! Add accessible line-height Improve text rendering */
