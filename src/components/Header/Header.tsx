@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * Common header which will show the currently signed in user (if any) and allow them to search through their orders
+ */
 function Header() {
   return (
     <header className='flex flex-wrap items-center justify-between bg-yellow-400 p-4'>

@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * The <main> element for the pages in the app
+ */
 function Main() {
   return (
     <main className='mx-auto max-w-3xl'>
