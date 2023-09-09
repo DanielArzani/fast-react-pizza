@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header() {
   return (
-    <header className='center flex flex-wrap items-center justify-between bg-yellow-400 p-4'>
+    <header className='flex flex-wrap items-center justify-between bg-yellow-400 p-4'>
       <h1>
         <a className='uppercase tracking-[.1em]' href='/'>
           FAST REACT PIZZA CO.
