@@ -4,12 +4,12 @@ import PizzaList from '../../components/PizzaList';
 
 function MenuPage() {
   return (
-    <div>
+    <>
       <Header />
-      <main>
+      <main className='center'>
         <PizzaList />
       </main>
-    </div>
+    </>
   );
 }
 
