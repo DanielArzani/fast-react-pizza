@@ -1,10 +1,7 @@
+import { Order } from '../types/OrderType';
 import { PizzaType } from '../types/PizzaType';
 
 const API_URL = 'https://react-fast-pizza-api.onrender.com/api';
-
-type NewOrder = {
-  [key: string]: any;
-};
 
 /**
  * Fetches the menu data from the API.
@@ -42,7 +39,7 @@ export async function getOrder(id: string): Promise<PizzaType> {
  * @returns {Promise<PizzaType>} The created order data as a promise.
  * @throws Will throw an error if the order creation fails.
  */
-export async function createOrder(newOrder: NewOrder): Promise<PizzaType> {
+export async function createOrder(newOrder: Order): Promise<PizzaType> {
   try {
     const res = await fetch(`${API_URL}/order`, {
       method: 'POST',
@@ -68,10 +65,7 @@ export async function createOrder(newOrder: NewOrder): Promise<PizzaType> {
  * @returns {Promise<void>}
  * @throws Will throw an error if the order update fails.
  */
-export async function updateOrder(
-  id: string,
-  updateObj: NewOrder
-): Promise<void> {
+export async function updateOrder(id: string, updateObj: Order): Promise<void> {
   try {
     const res = await fetch(`${API_URL}/order/${id}`, {
       method: 'PATCH',
