@@ -2,7 +2,8 @@ import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import Main from '../Main';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigation } from 'react-router-dom';
+import Loader from '../Loader';
 
 /**
  * This is the AppLayout component, which serves as a layout template for the application.
@@ -13,8 +14,13 @@ import { Outlet } from 'react-router-dom';
  * different pages at the specified routes, making it a crucial part of the routing system.
  */
 function AppLayout() {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === 'loading';
+
   return (
     <>
+      {isLoading && <Loader />}
+
       <Header />
 
       <Main>

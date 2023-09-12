@@ -2,7 +2,7 @@ import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import HomePage from '../../pages/HomePage';
-import MenuPage from '../../pages/MenuPage';
+import MenuPage, { loader as menuLoader } from '../../pages/MenuPage';
 import CartPage from '../../pages/CartPage';
 import OrderPage from '../../pages/OrderPage';
 import StatusPage from '../../pages/StatusPage';
@@ -19,6 +19,7 @@ const router = createBrowserRouter([
       {
         path: '/menu',
         element: <MenuPage />,
+        loader: menuLoader,
       },
       {
         path: '/cart',

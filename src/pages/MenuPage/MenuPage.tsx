@@ -1,5 +1,8 @@
 import React from 'react';
-import PizzaList from '../../components/PizzaList';
+import { getMenu } from '../../services/apiRestaurant';
+import { useLoaderData } from 'react-router-dom';
+import { PizzaType } from '../../types/PizzaType';
+import Pizza from '../../components/Pizza';
 
 /**
  * MenuPage Component:
@@ -10,11 +13,20 @@ import PizzaList from '../../components/PizzaList';
  */
 
 function MenuPage() {
+  const menu = useLoaderData() as PizzaType[];
+
   return (
-    <>
-      <PizzaList />
-    </>
+    <ul className='divide-y divide-stone-200 px-2'>
+      {menu.map((item) => {
+        return <Pizza menuItem={item} key={item.id} />;
+      })}
+    </ul>
   );
+}
+
+export async function loader() {
+  const menu = await getMenu();
+  return menu;
 }
 
 export default MenuPage;
