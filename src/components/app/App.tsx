@@ -1,6 +1,7 @@
 import React from 'react';
+import CartPage from '../../pages/CartPage';
 // import HomePage from '../../pages/HomePage';
-import MenuPage from '../../pages/MenuPage';
+// import MenuPage from '../../pages/MenuPage';
 
 /**
  * A pizza ordering application
@@ -8,8 +9,9 @@ import MenuPage from '../../pages/MenuPage';
 function App() {
   return (
     <div className='center relative min-h-full'>
+      <CartPage />
       {/* <HomePage /> */}
-      <MenuPage />
+      {/* <MenuPage /> */}
     </div>
   );
 }
