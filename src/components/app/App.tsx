@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderPage from '../../pages/OrderPage';
+import StatusPage from '../../pages/StatusPage';
 
 /**
  * A pizza ordering application
@@ -7,7 +7,7 @@ import OrderPage from '../../pages/OrderPage';
 function App() {
   return (
     <div className='center relative min-h-full'>
-      <OrderPage />
+      <StatusPage />
     </div>
   );
 }
