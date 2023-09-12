@@ -1,5 +1,34 @@
 import React from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
 import HomePage from '../../pages/HomePage';
+import MenuPage from '../../pages/MenuPage';
+import CartPage from '../../pages/CartPage';
+import OrderPage from '../../pages/OrderPage';
+import StatusPage from '../../pages/StatusPage';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomePage />,
+  },
+  {
+    path: '/menu',
+    element: <MenuPage />,
+  },
+  {
+    path: '/cart',
+    element: <CartPage />,
+  },
+  {
+    path: '/order/new',
+    element: <OrderPage />,
+  },
+  {
+    path: '/order/:orderId',
+    element: <StatusPage />,
+  },
+]);
 
 /**
  * A pizza ordering application
@@ -7,7 +36,7 @@ import HomePage from '../../pages/HomePage';
 function App() {
   return (
     <div className='center relative min-h-full'>
-      <HomePage />
+      <RouterProvider router={router} />
     </div>
   );
 }
