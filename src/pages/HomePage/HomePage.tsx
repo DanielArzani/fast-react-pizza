@@ -6,8 +6,12 @@ import SignupForm from '../../components/SignupForm';
 import HomepageButton from '../../components/HomepageButton';
 
 /**
- * The initial page a user will see, also doubles as the sign in page
+ * HomePage Component:
+ * This component serves as the landing page of the application.
+ * It consists of a Header, Main section with introductory content,
+ * a signup form, and a button to redirect to the homepage.
  */
+
 function HomePage() {
   return (
     <>

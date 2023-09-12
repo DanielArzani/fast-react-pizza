@@ -2,6 +2,14 @@ import React from 'react';
 import Header from '../../components/Header';
 import Main from '../../components/Main';
 
+/**
+ * StatusPage Component:
+ * This component is designed to display the status of a specific order.
+ * Users can view details like order number, status, time left for delivery,
+ * items in the order, and the total amount to be paid.
+ * It also offers an option to make the order a priority.
+ */
+
 function StatusPage() {
   return (
     <>

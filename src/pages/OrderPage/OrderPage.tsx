@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import Header from '../../components/Header';
 import Main from '../../components/Main';
 
+/**
+ * OrderPage Component:
+ * This component facilitates the order placement process.
+ * Users can provide their details and preferences for the order.
+ * It features a form with input fields for details such as name,
+ * phone number, address, and an option to prioritize the order.
+ */
+
 function OrderPage() {
   const [firstName, setFirstName] = useState<string>('Daniel');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
