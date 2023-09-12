@@ -7,10 +7,12 @@ import CartPage from '../../pages/CartPage';
 import OrderPage from '../../pages/OrderPage';
 import StatusPage from '../../pages/StatusPage';
 import AppLayout from '../AppLayout';
+import ErrorPage from '../../pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    errorElement: <ErrorPage />, // for routes that don't exist
     children: [
       {
         path: '/',
@@ -20,6 +22,7 @@ const router = createBrowserRouter([
         path: '/menu',
         element: <MenuPage />,
         loader: menuLoader,
+        errorElement: <ErrorPage />, // for errors in fetching
       },
       {
         path: '/cart',
