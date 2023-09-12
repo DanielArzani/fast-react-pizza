@@ -6,27 +6,33 @@ import MenuPage from '../../pages/MenuPage';
 import CartPage from '../../pages/CartPage';
 import OrderPage from '../../pages/OrderPage';
 import StatusPage from '../../pages/StatusPage';
+import AppLayout from '../AppLayout';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <HomePage />,
-  },
-  {
-    path: '/menu',
-    element: <MenuPage />,
-  },
-  {
-    path: '/cart',
-    element: <CartPage />,
-  },
-  {
-    path: '/order/new',
-    element: <OrderPage />,
-  },
-  {
-    path: '/order/:orderId',
-    element: <StatusPage />,
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+      {
+        path: '/menu',
+        element: <MenuPage />,
+      },
+      {
+        path: '/cart',
+        element: <CartPage />,
+      },
+      {
+        path: '/order/new',
+        element: <OrderPage />,
+      },
+      {
+        path: '/order/:orderId',
+        element: <StatusPage />,
+      },
+    ],
   },
 ]);
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -8,7 +9,7 @@ function Footer() {
         <span>€12.00</span>
       </p>
 
-      <a href='/'>Open Cart →</a>
+      <Link to='/'>Open Cart →</Link>
     </footer>
   );
 }

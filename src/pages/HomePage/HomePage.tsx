@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../../components/Header';
-import Main from '../../components/Main';
 import Intro from '../../components/Intro';
 import SignupForm from '../../components/SignupForm';
 import HomepageButton from '../../components/HomepageButton';
@@ -14,16 +12,11 @@ import HomepageButton from '../../components/HomepageButton';
 
 function HomePage() {
   return (
-    <>
-      <Header />
-      <Main>
-        <div className='my-10 px-4 text-center sm:my-16'>
-          <Intro />
-          <SignupForm />
-          <HomepageButton />
-        </div>
-      </Main>
-    </>
+    <div className='my-10 px-4 text-center sm:my-16'>
+      <Intro />
+      <SignupForm />
+      <HomepageButton />
+    </div>
   );
 }
 
