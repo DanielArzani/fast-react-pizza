@@ -6,7 +6,7 @@ export type CartItem = {
   totalPrice: number;
 };
 
-export type Order = {
+export type OrderType = {
   id: string;
   customer: string;
   phone: string;
