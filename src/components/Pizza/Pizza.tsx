@@ -2,6 +2,7 @@ import React from 'react';
 
 import { PizzaType } from '../../types/PizzaType';
 import { formatCurrency } from '../../utils/helpers';
+import Button from '../Button';
 
 type PizzaProps = {
   menuItem: PizzaType;
@@ -32,9 +33,9 @@ function Pizza({ menuItem }: PizzaProps) {
           ) : (
             <p>Sold Out</p>
           )}
-          <button className='inline-block rounded-full bg-yellow-400 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-stone-800 transition-colors duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed md:px-5 md:py-2.5'>
+          <Button type='button' padding='0.5rem 1rem' fontSizeXS={true}>
             Add to cart
-          </button>
+          </Button>
         </div>
       </div>
     </li>

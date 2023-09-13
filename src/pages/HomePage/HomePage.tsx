@@ -1,7 +1,7 @@
 import React from 'react';
 import Intro from '../../components/Intro';
 import SignupForm from '../../components/SignupForm';
-import HomepageButton from '../../components/HomepageButton';
+import Button from '../../components/Button/Button';
 
 /**
  * HomePage Component:
@@ -15,7 +15,7 @@ function HomePage() {
     <div className='my-10 px-4 text-center sm:my-16'>
       <Intro />
       <SignupForm />
-      <HomepageButton />
+      <Button type='button'>Start Ordering</Button>
     </div>
   );
 }
