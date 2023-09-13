@@ -1,45 +1,13 @@
 import React from 'react';
 import { OrderType } from '../../types/OrderType';
-// import { calcMinutesLeft } from '../../utils/helpers';
+import {
+  calcMinutesLeft,
+  formatCurrency,
+  formatDate,
+} from '../../utils/helpers';
+import { useLoaderData } from 'react-router-dom';
 
-// const order = {
-//   id: 'ABCDEF',
-//   customer: 'Jonas',
-//   phone: '123456789',
-//   address: 'Arroios, Lisbon , Portugal',
-//   priority: true,
-//   estimatedDelivery: '2027-04-25T10:00:00',
-//   cart: [
-//     {
-//       pizzaId: 7,
-//       name: 'Napoli',
-//       quantity: 3,
-//       unitPrice: 16,
-//       totalPrice: 48,
-//     },
-//     {
-//       pizzaId: 5,
-//       name: 'Diavola',
-//       quantity: 2,
-//       unitPrice: 16,
-//       totalPrice: 32,
-//     },
-//     {
-//       pizzaId: 3,
-//       name: 'Romana',
-//       quantity: 1,
-//       unitPrice: 15,
-//       totalPrice: 15,
-//     },
-//   ],
-//   position: '-9.000,38.000',
-//   orderPrice: 95,
-//   priorityPrice: 19,
-// };
-
-type StatusPageProps = {
-  newOrder: OrderType;
-};
+// Test ID: IIDSAT
 
 /**
  * StatusPage Component:
@@ -49,14 +17,17 @@ type StatusPageProps = {
  * It also offers an option to make the order a priority.
  */
 
-function StatusPage({ newOrder }: StatusPageProps) {
-  // const deliveryIn = calcMinutesLeft(newOrder.estimatedDelivery);
+function StatusPage() {
+  const newOrder = useLoaderData() as OrderType;
+
+  const deliveryIn = calcMinutesLeft(newOrder.estimatedDelivery);
+  const estimatedDeliveryDate = formatDate(newOrder.estimatedDelivery);
 
   return (
     <div className='space-y-8 px-4 py-6'>
       {/* title */}
       <div className='flex flex-wrap items-center justify-between gap-2'>
-        <h2 className='text-xl font-semibold'>Order #CT9585 status</h2>
+        <h2 className='text-xl font-semibold'>Order #{newOrder.id} status</h2>
         <div className='space-x-2'>
           <span className='rounded-full bg-green-500 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-green-50'>
             Preparing order
@@ -66,33 +37,41 @@ function StatusPage({ newOrder }: StatusPageProps) {
 
       {/* time to delivery */}
       <div className='flex flex-wrap items-center justify-between gap-2 bg-stone-200 px-6 py-5'>
-        <p className='font-medium'>Only 26 minutes left 😃</p>
+        {deliveryIn > 0 && (
+          <p className='font-medium'>Only {deliveryIn} minutes left 😃</p>
+        )}
+        {deliveryIn < 0 && (
+          <p className='font-medium'>Order should have arrived</p>
+        )}
+
         <p className='text-xs text-stone-500'>
-          (Estimated delivery: Sep 12, 03:21 AM)
+          (Estimated delivery: {estimatedDeliveryDate})
         </p>
       </div>
 
       {/* order */}
       <ul className='dive-stone-200 divide-y border-b border-t'>
-        <li className='space-y-1 py-3'>
-          <div className='flex items-center justify-between gap-4 text-sm'>
-            <p>
-              <span className='font-bold'>1×</span> Margherita
-            </p>
-            <p className='font-bold'>€12.00</p>
-          </div>
-          <p className='text-sm capitalize italic text-stone-500'>
-            tomato, mozzarella, basil
-          </p>
-        </li>
+        {newOrder.cart.map((item, index) => (
+          <li key={index} className='space-y-1 py-3'>
+            <div className='flex items-center justify-between gap-4 text-sm'>
+              <p>
+                <span className='font-bold'>{item.quantity}×</span> {item.name}
+              </p>
+              <p className='font-bold'>{formatCurrency(item.totalPrice)}</p>
+            </div>
+          </li>
+        ))}
       </ul>
 
       {/* payment price */}
       <div className='space-y-2 bg-stone-200 px-6 py-5'>
         <p className='text-sm font-medium text-stone-600'>
-          Price pizza: €12.00
+          Price pizza: {formatCurrency(newOrder.orderPrice)}
         </p>
-        <p className='font-bold'>To pay on delivery: €12.00</p>
+        <p className='font-bold'>
+          To pay on delivery:{' '}
+          {formatCurrency(newOrder.orderPrice + newOrder.priorityPrice)}
+        </p>
       </div>
 
       {/* make priority */}

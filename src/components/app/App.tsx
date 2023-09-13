@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from '../../pages/HomePage';
 import MenuPage, { loader as menuLoader } from '../../pages/MenuPage';
 import CartPage from '../../pages/CartPage';
-import OrderPage from '../../pages/OrderPage';
+import OrderPage, { loader as orderLoader } from '../../pages/OrderPage';
 import StatusPage from '../../pages/StatusPage';
 import AppLayout from '../AppLayout';
 import ErrorPage from '../../pages/ErrorPage';
@@ -35,6 +35,8 @@ const router = createBrowserRouter([
       {
         path: '/order/:orderId',
         element: <StatusPage />,
+        loader: orderLoader,
+        errorElement: <ErrorPage />,
       },
     ],
   },

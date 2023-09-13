@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../../components/Button';
+import { getOrder } from '../../services/apiRestaurant';
 
 /**
  * OrderPage Component:
@@ -93,6 +94,13 @@ function Input({ value, onChange, labelText }: InputProps) {
       />
     </>
   );
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+export async function loader({ params }) {
+  const order = await getOrder(params.orderId);
+  return order;
 }
 
 export default OrderPage;

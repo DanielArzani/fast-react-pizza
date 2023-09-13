@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SearchInput() {
+  const [query, setQuery] = useState<string>('');
+  const navigate = useNavigate();
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+
+    if (!query) return;
+
+    navigate(`/order/${query}`);
+    setQuery('');
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor='search_order' className='sr-only'>
         Search order #
       </label>
@@ -13,6 +26,8 @@ function SearchInput() {
         name='search_order'
         id='search_order'
         placeholder='Search order #'
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
     </form>
   );
