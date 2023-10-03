@@ -18,3 +18,10 @@ export type OrderType = {
   orderPrice: number;
   priorityPrice: number;
 };
+
+export type UserFormFields = {
+  address: string;
+  firstName: string;
+  givePriority: boolean;
+  cart: CartItem[];
+};
