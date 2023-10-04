@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateName } from '../../store/userSlice';
 
 /**
  * The signup form on the Homepage
  */
 function SignupForm() {
   const [name, setName] = useState<string>('');
+  const dispatch = useDispatch();
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+
+    if (!name) return;
+
+    dispatch(updateName(name));
   };
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchInput from '../SearchInput';
+import Username from '../Username';
 
 /**
  * Common header which will show the currently signed in user (if any) and allow them to search through their orders
@@ -15,8 +16,7 @@ function Header() {
       </h1>
 
       <SearchInput />
-
-      <p className='text-sm font-semibold uppercase'>Daniel</p>
+      <Username />
     </header>
   );
 }
