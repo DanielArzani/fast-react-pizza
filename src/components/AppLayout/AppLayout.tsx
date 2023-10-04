@@ -17,19 +17,33 @@ function AppLayout() {
   const navigation = useNavigation();
   const isLoading = navigation.state === 'loading';
 
-  return (
-    <>
-      {isLoading && <Loader />}
+  if (isLoading) {
+    return (
+      <div className='min-h-full blur'>
+        <Loader />
 
-      <Header />
+        <Header />
 
-      <Main>
-        <Outlet />
-      </Main>
+        <Main>
+          <Outlet />
+        </Main>
 
-      <Footer />
-    </>
-  );
+        <Footer />
+      </div>
+    );
+  } else {
+    return (
+      <div className='min-h-full'>
+        <Header />
+
+        <Main>
+          <Outlet />
+        </Main>
+
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default AppLayout;

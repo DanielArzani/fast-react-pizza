@@ -51,7 +51,7 @@ const router = createBrowserRouter([
  */
 function App() {
   return (
-    <div className='center relative min-h-full'>
+    <div className='center relative h-full'>
       <RouterProvider router={router} />
     </div>
   );
