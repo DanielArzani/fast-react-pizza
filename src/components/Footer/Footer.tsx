@@ -9,7 +9,7 @@ function Footer() {
         <span>€12.00</span>
       </p>
 
-      <Link to='/'>Open Cart →</Link>
+      <Link to='cart'>Open Cart →</Link>
     </footer>
   );
 }

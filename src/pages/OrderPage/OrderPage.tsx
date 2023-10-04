@@ -3,6 +3,8 @@ import Button from '../../components/Button';
 import { createOrder, getOrder } from '../../services/apiRestaurant';
 import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
 import { CartItem } from '../../types/OrderType';
+import { useSelector } from 'react-redux';
+import { StoreState } from '../../types/StoreType';
 
 type Errors = {
   phone?: string;
@@ -47,7 +49,9 @@ const isValidPhone = (str: string) =>
  */
 
 function OrderPage() {
-  const [firstName, setFirstName] = useState<string>('Daniel');
+  const username = useSelector((state: StoreState) => state.user.username);
+
+  const [firstName, setFirstName] = useState<string>(`${username}`);
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [address, setAddress] = useState<string>('');
   const [givePriority, setGivePriority] = useState<boolean>(false);
@@ -67,13 +71,13 @@ function OrderPage() {
 
       <Form method='POST'>
         <div className='mb-5 flex flex-col gap-2 sm:flex-row sm:items-center'>
-          <label className=' sm:basis-40' htmlFor='firstName'>
+          <label className='sm:basis-40' htmlFor='firstNameInput'>
             First Name
           </label>
 
           <input
             value={firstName}
-            id={firstName}
+            id='firstNameInput'
             name='customer'
             onChange={(e) => setFirstName(e.target.value)}
             className='input grow'
