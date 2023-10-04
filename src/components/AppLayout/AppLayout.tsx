@@ -19,21 +19,18 @@ function AppLayout() {
 
   if (isLoading) {
     return (
-      <div className='min-h-full blur'>
-        <Loader />
-
+      <div className={`flex min-h-full flex-col blur`}>
+        {isLoading && <Loader />}
         <Header />
-
         <Main>
           <Outlet />
         </Main>
-
         <Footer />
       </div>
     );
   } else {
     return (
-      <div className='min-h-full'>
+      <div className='flex min-h-full flex-col'>
         <Header />
 
         <Main>

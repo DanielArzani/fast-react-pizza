@@ -25,7 +25,8 @@
   /* Allow percentage-based heights in the application */
   html,
   body,
-  #root {
+  #root,
+  .flex-container {
     height: 100%;
   }
   /* Typographic tweaks! Add accessible line-height Improve text rendering */
@@ -127,6 +128,11 @@
 }
 
 @layer utilities {
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
   /**********************
      LOADING SPINNER 
   /**********************/
